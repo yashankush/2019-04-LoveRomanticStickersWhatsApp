@@ -6,4 +6,8 @@
         android:icon="@drawable/ic_share_black_24dp"
         android:title="Share App"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/privacy_policy"
+        android:title="Privacy Policy"
+        app:showAsAction="never"/>
 </menu>

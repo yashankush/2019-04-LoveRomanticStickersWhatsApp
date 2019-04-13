@@ -24,6 +24,12 @@
     <string name="title_activity_fb_ads_test">FbAdsTest</string>
 
     <string name="fb_native_ads_app_id">2010359862344512_2010360259011139</string>
-    <string name="fb_native_banner_ads_app_id">2010359862344512_2010375115676320</string>
     <string name="fb_interstitial_ads_app_id">2010359862344512_2010375995676232</string>
+
+
+    <!--To Change-->
+    <string name="fb_native_banner_ads_app_id">2010359862344512_2010375115676320</string>
+    <string name="app_share_text">Get Free Valentine\'s Day Stickers for WhatsApp.</string>
+    <string name="privacy_policy_url">https://www.google.com/</string>
+
 </resources>

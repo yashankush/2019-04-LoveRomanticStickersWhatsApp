@@ -8,6 +8,7 @@
 
 package com.valentine.stickers;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -29,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
@@ -123,7 +125,13 @@ public class StickerPackListActivity extends AddStickerPackActivity {
             }
         });
         // load the ad
-        nativeBannerAd.loadAd();
+
+
+        if(verifyInstallerId(this)) {
+            nativeBannerAd.loadAd();
+        } else {
+            Toast.makeText(this, "For all features download the app from the Play Store", Toast.LENGTH_SHORT).show();
+        }
 
         /*interstitialAd = new InterstitialAd(this, getResources().getString(R.string.fb_interstitial_ads_app_id));
         interstitialAd.loadAd();*/
@@ -160,6 +168,17 @@ public class StickerPackListActivity extends AddStickerPackActivity {
                 // Ad impression logged callback
             }
         });*/
+    }
+
+    boolean verifyInstallerId(Context context) {
+        // A list with valid installers package name
+        List<String> validInstallers = new ArrayList<>(Arrays.asList("com.android.vending", "com.google.android.feedback"));
+
+        // The package name of the app that has installed your app
+        final String installer = context.getPackageManager().getInstallerPackageName(context.getPackageName());
+
+        // true if your app has been downloaded from Play Store
+        return installer != null && validInstallers.contains(installer);
     }
 
     private void promoMyBannerAds() {
@@ -331,12 +350,14 @@ public class StickerPackListActivity extends AddStickerPackActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 String link = "https://play.google.com/store/apps/details?id=" + getPackageName();
-                String message = "Get Free Valentine's Day Stickers for WhatsApp.\n\n" + link;
+                String message = getString(R.string.app_share_text) + link;
                 intent.putExtra(Intent.EXTRA_TEXT, message);
                 startActivity(Intent.createChooser(intent, "Share App"));
             } catch (Exception e) {
 
             }
+        } else if (item.getItemId() == R.id.privacy_policy) {
+            startActivity(new Intent(this, WebViewActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
