@@ -144,8 +144,11 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
                 Log.d(TAG, "Native ad impression logged!");
             }
         });
-        // load the ad
-        nativeBannerAd.loadAd();
+        // load the
+
+        if (PlayStoreDownloadCheck.verifyInstallerId(this)) {
+            nativeBannerAd.loadAd();
+        }
 
         //interstitialAd = new InterstitialAd(this, getResources().getString(R.string.fb_interstitial_ads_app_id));
 
@@ -255,7 +258,6 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     private final ViewTreeObserver.OnGlobalLayoutListener pageLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {

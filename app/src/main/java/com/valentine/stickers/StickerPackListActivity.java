@@ -125,9 +125,7 @@ public class StickerPackListActivity extends AddStickerPackActivity {
             }
         });
         // load the ad
-
-
-        if(verifyInstallerId(this)) {
+        if (PlayStoreDownloadCheck.verifyInstallerId(this)) {
             nativeBannerAd.loadAd();
         } else {
             Toast.makeText(this, "For all features download the app from the Play Store", Toast.LENGTH_SHORT).show();
@@ -168,17 +166,6 @@ public class StickerPackListActivity extends AddStickerPackActivity {
                 // Ad impression logged callback
             }
         });*/
-    }
-
-    boolean verifyInstallerId(Context context) {
-        // A list with valid installers package name
-        List<String> validInstallers = new ArrayList<>(Arrays.asList("com.android.vending", "com.google.android.feedback"));
-
-        // The package name of the app that has installed your app
-        final String installer = context.getPackageManager().getInstallerPackageName(context.getPackageName());
-
-        // true if your app has been downloaded from Play Store
-        return installer != null && validInstallers.contains(installer);
     }
 
     private void promoMyBannerAds() {
