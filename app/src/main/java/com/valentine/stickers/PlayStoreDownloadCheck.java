@@ -13,7 +13,7 @@ public class PlayStoreDownloadCheck {
         List<String> validInstallers = new ArrayList<>(Arrays.asList("com.android.vending", "com.google.android.feedback"));
 
         // The package name of the app that has installed your app
-        final String installer = context.getPackageManager().getInstallerPackageName(context.getPackageName());
+        final String installer = context.getPackageManager().getInstallerPackageName(context.getString(R.string.play_store_package_name));
 
         // true if your app has been downloaded from Play Store
         return installer != null && validInstallers.contains(installer);

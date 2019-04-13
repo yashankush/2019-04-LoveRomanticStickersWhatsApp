@@ -31,5 +31,6 @@
     <string name="fb_native_banner_ads_app_id">2010359862344512_2010375115676320</string>
     <string name="app_share_text">Get Free Valentine\'s Day Stickers for WhatsApp.</string>
     <string name="privacy_policy_url">https://www.google.com/</string>
+    <string name="play_store_package_name">com.valentine.stickers</string>
 
 </resources>
