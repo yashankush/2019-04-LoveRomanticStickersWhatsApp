@@ -12,7 +12,7 @@ public class WebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
         webView = findViewById(R.id.webview_privacy_policy);
-
+///this is show privacy policy
         webView.loadUrl(getString(R.string.privacy_policy_url));
     }
 }

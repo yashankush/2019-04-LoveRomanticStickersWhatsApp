@@ -23,17 +23,17 @@ android {
     }
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.valentine.stickers"
+        applicationId "com.loveromantic.stickers2"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 10
-        versionName "1.1.0"
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         def contentProviderAuthority = applicationId + ".stickercontentprovider"
         // Creates a placeholder property to use in the manifest.
         manifestPlaceholders =
                 [contentProviderAuthority       : contentProviderAuthority,
-                 onesignal_app_id               : '13ad7539-017b-4fda-89f8-9586fb88b860',
+                 onesignal_app_id               : '0074c1fd-84bf-438b-8302-936caa2786a9',
                  // Project number pulled from dashboard, local value is ignored.
                  onesignal_google_project_number: 'REMOTE']
         // Adds a new field for the authority to the BuildConfig class.
@@ -128,9 +128,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:multidex:1.0.3'
-    implementation('com.google.android.gms:play-services-ads:17.2.0', {
-        exclude group: 'com.google.android.gms'
-    })
+
 }
 repositories {
     mavenCentral()
